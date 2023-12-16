@@ -1,38 +1,219 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap');
+
+
+/* Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter Tight', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Input and Button Styles */
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+input {
+  border: 2px solid black;
+  width: calc(100% - 22px); /* Account for padding and border */
+}
+
+input:focus {
+  outline: none;
+  border-color: #777;
+}
+
+/* ToDoList Styles */
+.todo-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* ToDoItem Styles */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  background-color: #f9f9f9;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.todo-item span {
+  transition: color 0.3s ease;
+}
+
+
+/* Delete Button Styles */
+.todo-item button {
+  background-color: #808080; /* Gray color */
   color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-item button:hover {
+  background-color: #696969; /* Darker gray for hover effect */
 }
 
-@keyframes App-logo-spin {
+
+
+/* Input Container Styles */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Set the container to full width */
+}
+
+.input-container input {
+  flex-grow: 1; /* Allows the input to fill the space */
+  margin-right: 10px; /* Spacing between input and button */
+  width: calc(100% - 110px); /* Adjust this value based on the button width */
+}
+
+/* Adjust the button width if needed */
+.input-container button {
+  width: 100px; /* Set a fixed width for the button */
+}
+
+
+/* ToDoItem Styles */
+.todo-item {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the start */
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  width: 100%;
+  word-break: break-word; /* Break long words to next line */
+}
+
+.todo-item span {
+  flex-grow: 1;
+  margin-bottom: 10px; /* Spacing between text and delete button */
+}
+
+/* Delete Button Styles */
+.delete-button {
+  align-self: flex-end; /* Align button to the end of the container */
+  background-color: #808080; /* Gray color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #696969; /* Darker gray for hover effect */
+}
+
+
+
+
+
+/* Textarea Styles */
+.input-container textarea {
+  resize: none; /* Prevent manual resizing */
+  overflow: hidden; /* Hide scrollbar */
+  min-height: 36px; /* Minimum height */
+  width: calc(100% - 110px); /* Adjust width as needed */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  margin-right: 10px;
+}
+
+.input-container textarea:focus {
+  outline: none;
+  border-color: #777;
+}
+
+
+
+
+/* Delete All Button Styles */
+.delete-all {
+  background-color: #d9534f; /* Red color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-end;
+  margin: 10px 0;
+}
+
+.delete-all:hover {
+  background-color: #c9302c; /* Darker red for hover effect */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animation for completed tasks */
+@keyframes fadeOut {
   from {
-    transform: rotate(0deg);
+    background-color: #fff;
   }
   to {
-    transform: rotate(360deg);
+    background-color: #eee;
   }
+}
+
+.todo-item.completed {
+  animation: fadeOut 0.3s ease;
 }
